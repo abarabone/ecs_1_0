@@ -16,9 +16,9 @@ using UnityEngine.InputSystem;
 using Collider = Unity.Physics.Collider;
 using SphereCollider = Unity.Physics.SphereCollider;
 
-using DotsLite.Misc;
-using DotsLite.Utilities;
-using DotsLite.SystemGroup;
+using DotsLite.Memory;
+//using DotsLite.Utilities;
+//using DotsLite.SystemGroup;
 
 namespace DotsLite.Draw
 {

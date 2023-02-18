@@ -1,13 +1,13 @@
-﻿using DotsLite.Misc;
-using Unity.Entities;
+﻿using Unity.Entities;
 
 namespace DotsLite.Draw
 {
+    using DotsLite.Memory;
 
     ////[UpdateBefore( typeof( DrawCullingSystem ) )]
     ////[UpdateInGroup(typeof( SystemGroup.Presentation.DrawModel.DrawPrevSystemGroup))]
     [UpdateInGroup(typeof(SystemGroup.Presentation.Render.DrawPrev.ResetCounter))]
-    public class DrawInstanceCounterResetSystem : ComponentSystem
+    public class DrawInstanceCounterResetSystem : SystemBase
     {
 
         protected override void OnStartRunning()
