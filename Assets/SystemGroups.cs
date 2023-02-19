@@ -73,11 +73,11 @@ namespace DotsLite.SystemGroup
 
         namespace Hit
         {
-            [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
-            [UpdateAfter(typeof(ExportPhysicsWorld))]
-            [UpdateBefore(typeof(EndFramePhysicsSystem))]
-            public class Hit : ComponentSystemGroup
-            { }
+            //[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+            //[UpdateAfter(typeof(ExportPhysicsWorld))]
+            //[UpdateBefore(typeof(EndFramePhysicsSystem))]
+            //public class Hit : ComponentSystemGroup
+            //{ }
         }
 
 
