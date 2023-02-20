@@ -7,42 +7,43 @@ namespace DotsLite.Draw
     ////[UpdateBefore( typeof( DrawCullingSystem ) )]
     ////[UpdateInGroup(typeof( SystemGroup.Presentation.DrawModel.DrawPrevSystemGroup))]
     [UpdateInGroup(typeof(SystemGroup.Presentation.Render.DrawPrev.ResetCounter))]
-    public class DrawInstanceCounterResetSystem : SystemBase
+    //public partial class DrawInstanceCounterResetSystem : SystemBase
+    public partial struct DrawInstanceCounterResetSystem : ISystem
     {
 
-        protected override void OnStartRunning()
+        public void OnStartRunning(ref SystemState state)
         {
-            this.Entities
-                .ForEach(
-                    ( ref DrawModel.InstanceCounterData counter ) =>
-                    {
-                        counter.InstanceCounter = new ThreadSafeCounter<Persistent>(0);
-                    }
-                );
+            //this.Entities
+            //    .ForEach(
+            //        ( ref DrawModel.InstanceCounterData counter ) =>
+            //        {
+            //            counter.InstanceCounter = new ThreadSafeCounter<Persistent>(0);
+            //        }
+            //    );
         }
 
-        protected override void OnUpdate()
+        public void OnUpdate(ref SystemState state)
         {
 
-            this.Entities
-                .ForEach(
-                    ( ref DrawModel.InstanceCounterData counter ) =>
-                    {
-                        counter.InstanceCounter.Reset();
-                    }
-                );
+            //this.Entities
+            //    .ForEach(
+            //        ( ref DrawModel.InstanceCounterData counter ) =>
+            //        {
+            //            counter.InstanceCounter.Reset();
+            //        }
+            //    );
 
         }
 
-        protected override void OnDestroy()
+        public void OnDestroy(ref SystemState state)
         {
-            this.Entities
-                .ForEach(
-                    ( ref DrawModel.InstanceCounterData counter ) =>
-                    {
-                        counter.InstanceCounter.Dispose();
-                    }
-                );
+            //this.Entities
+            //    .ForEach(
+            //        ( ref DrawModel.InstanceCounterData counter ) =>
+            //        {
+            //            counter.InstanceCounter.Dispose();
+            //        }
+            //    );
         }
 
     }

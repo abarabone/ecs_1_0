@@ -55,19 +55,19 @@ namespace DotsLite.SystemGroup
         //// PhysicsWorld
 
 
-        [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
-        [UpdateBefore(typeof(BuildPhysicsWorld))]
-        public class Initialize : ComponentSystemGroup
-        { }
+        //[UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+        //[UpdateBefore(typeof(BuildPhysicsWorld))]
+        //public class Initialize : ComponentSystemGroup
+        //{ }
 
-        namespace Move
-        {
-            [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
-            [UpdateBefore(typeof(BuildPhysicsWorld))]
-            [UpdateAfter(typeof(Initialize))]
-            public class ObjectMove : ComponentSystemGroup
-            { }
-        }
+        //namespace Move
+        //{
+        //    [UpdateInGroup(typeof(FixedStepSimulationSystemGroup))]
+        //    [UpdateBefore(typeof(BuildPhysicsWorld))]
+        //    [UpdateAfter(typeof(Initialize))]
+        //    public class ObjectMove : ComponentSystemGroup
+        //    { }
+        //}
 
         // PhysicsWorld
 

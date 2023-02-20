@@ -1,37 +1,37 @@
-using Unity.Entities;
+//using Unity.Entities;
 
-namespace DotsLite.Draw
-{
-    /// <summary>
-    /// 
-    /// </summary>
-    //[DisableAutoCreation]
-    [UpdateInGroup( typeof( SystemGroup.Presentation.Render.DrawAfter.TempFree ) )]
-    //[UpdateAfter( typeof( DrawMeshCsSystem ) )]
-    public partial class DrawInstanceTempBufferFreeSystem : SystemBase
-    {
+//namespace DotsLite.Draw
+//{
+//    /// <summary>
+//    /// 
+//    /// </summary>
+//    //[DisableAutoCreation]
+//    [UpdateInGroup( typeof( SystemGroup.Presentation.Render.DrawAfter.TempFree ) )]
+//    //[UpdateAfter( typeof( DrawMeshCsSystem ) )]
+//    public partial class DrawInstanceTempBufferFreeSystem : SystemBase
+//    {
 
-        protected override void OnCreate()
-        {
-            base.OnCreate();
+//        protected override void OnCreate()
+//        {
+//            base.OnCreate();
 
-            this.RequireSingletonForUpdate<DrawSystem.TransformBufferUseTempJobTag>();
-        }
+//            this.RequireSingletonForUpdate<DrawSystem.TransformBufferUseTempJobTag>();
+//        }
 
 
-        protected override void OnUpdate()
-        {
+//        protected override void OnUpdate()
+//        {
 
-            this.Entities
-                .ForEach(
-                    ( ref DrawSystem.NativeTransformBufferData buf ) =>
-                    {
-                        buf.Transforms.Dispose();
-                    }
-                )
-                .Run();
+//            this.Entities
+//                .ForEach(
+//                    ( ref DrawSystem.NativeTransformBufferData buf ) =>
+//                    {
+//                        buf.Transforms.Dispose();
+//                    }
+//                )
+//                .Run();
 
-        }
+//        }
 
-    }
-}
+//    }
+//}
