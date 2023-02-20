@@ -13,6 +13,11 @@ namespace DotsLite.Draw
 
         public void OnStartRunning(ref SystemState state)
         {
+            foreach((var a, ref var b) in
+                SystemAPI.Query<DrawModel.InstanceCounterData, RefRW<DrawModel.SortSettingData>>())
+            {
+                
+            }
             //this.Entities
             //    .ForEach(
             //        ( ref DrawModel.InstanceCounterData counter ) =>
