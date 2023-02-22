@@ -6,6 +6,7 @@ using Unity.Collections;
 using Unity.Mathematics;
 using Unity.Transforms;
 using System.Runtime.InteropServices;
+using Unity.Collections.LowLevel.Unsafe;
 
 namespace DotsLite.Draw.Authoring
 {
@@ -25,17 +26,33 @@ namespace DotsLite.Draw.Authoring
         {
             //if (!this.isActiveAndEnabled) { conversionSystem.DstEntityManager.DestroyEntity(entity); return; }
 
+            //this.AddTransformUsageFlags(TransformUsageFlags.None);
 
-            //initEntity_(entity, dstManager, this.UseTempJobNativeBuffer, this.UseDrawInstanceSort);
-            
+            this.AddComponent(new DrawSystem.TransformBufferInfoData { });
+            this.AddComponentObject(new DrawSystem.ComputeTransformBufferData { Transforms = null });
+            this.AddComponent(new DrawSystem.NativeTransformBufferData { Transforms = new UnsafeList<float4>(0, Allocator.Invalid, NativeArrayOptions.UninitializedMemory);
+            //initEntity_(this, authoring.UseTempJobNativeBuffer, authoring.UseDrawInstanceSort);
+
             //initNativeBufferComponent_(entity, dstManager, this.TransformBufferMaxVectorLength, this.UseTempJobNativeBuffer);
-            
+
             //initComputeBufferComponent_(entity, dstManager, this.TransformBufferMaxVectorLength);
 
             //initSortingBufferComponent_(entity, dstManager, this.TransformBufferMaxVectorLength, this.UseTempJobNativeBuffer, this.UseDrawInstanceSort);
 
             //return;
+            static void initEntity_(IBaker baker,bool useTempBuffer, bool useSort)
+            {
+                //var types = new FixedList128Bytes<ComponentType> {
+                //    //typeof(DrawSystem.ComputeTransformBufferData),
+                //    typeof(DrawSystem.NativeTransformBufferData),
+                //    typeof(DrawSystem.TransformBufferInfoData)// temp buffer では現状不要
+                //};
+                ////if (useTempBuffer) types.Add(typeof(DrawSystem.TransformBufferUseTempJobTag));
+                //if (useSort) types.Add(typeof(DrawSystem.SortingNativeTransformBufferData));
 
+                //baker.AddComponent(new ComponentTypeSet(types));
+                baker.AddComponent(new DrawSystem.NativeTransformBufferData { });
+            }
 
             //static void initEntity_(Entity ent, EntityManager em, bool useTempBuffer, bool useSort)
             //{
@@ -48,8 +65,7 @@ namespace DotsLite.Draw.Authoring
             //    if (useSort) types.Add(typeof(DrawSystem.SortingNativeTransformBufferData));
 
             //    em.AddComponents(ent, new ComponentTypes(types.ToArray()));
-            //    em.SetName_(ent, "draw system");
-
+            //    //em.SetName_(ent, "draw system");
             //}
 
             //static void initNativeBufferComponent_(
