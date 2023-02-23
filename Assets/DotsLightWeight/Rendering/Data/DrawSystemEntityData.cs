@@ -27,11 +27,12 @@ namespace DotsLite.Draw
 
     static public partial class DrawSystem
     {
-        public class ComputeTransformBufferData : IComponentData
+        public class GraphicTransformBufferData : IComponentData
         {
             public ComputeBuffer Transforms;
         }
 
+        [ChunkSerializable]
         public struct NativeTransformBufferData : IComponentData
         {
             public UnsafeList<float4> Transforms;
@@ -48,6 +49,7 @@ namespace DotsLite.Draw
         { }
 
 
+        [ChunkSerializable]
         public struct SortingNativeTransformBufferData : IComponentData
         {
             public UnsafeList<float4> Transforms;
