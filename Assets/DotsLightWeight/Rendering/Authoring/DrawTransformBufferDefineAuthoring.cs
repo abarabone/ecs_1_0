@@ -33,7 +33,7 @@ namespace DotsLite.Draw.Authoring
             //initComputeBufferComponent_(entity, dstManager, this.TransformBufferMaxVectorLength);
 
             //initSortingBufferComponent_(entity, dstManager, this.TransformBufferMaxVectorLength, this.UseTempJobNativeBuffer, this.UseDrawInstanceSort);
-
+            
             return;
 
 

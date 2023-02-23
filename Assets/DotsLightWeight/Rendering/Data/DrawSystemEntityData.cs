@@ -19,9 +19,34 @@ namespace DotsLite.Draw
 {
 
     using DotsLite.Geometry;
+    using DotsLite.Memory;
+
     //using DotsLite.Misc;
 
+    ////public interface IPract : IComponentData
+    ////{ }
+    ////public struct PractData1
+    ////{ }
+    ////public struct PractData2
+    ////{ }
+    ////public partial struct PractSystem : ISystem
+    ////{
+    ////    public void OnStartRunning(ref SystemState state)
+    ////    {
+    ////        foreach(var c in SystemAPI.Query<IPract>())
+    ////        {
+    ////            Debug.Log(c);
+    ////        }
+    ////    }
 
+    ////    public void OnUpdate(ref SystemState state)
+    ////    {
+    ////    }
+
+    ////    public void OnDestroy(ref SystemState state)
+    ////    {
+    ////    }
+    ////}
 
     // シングルトン -----------------------
 
