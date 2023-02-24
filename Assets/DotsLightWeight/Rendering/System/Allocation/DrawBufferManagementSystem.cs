@@ -24,51 +24,57 @@
 //{
 
 //    //[DisableAutoCreation]
-//    [UpdateInGroup( typeof( SystemGroup.Presentation.Render.DrawPrev ) )]
-//    public partial class DrawBufferManagementSystem : SystemBase
+//    [UpdateInGroup(typeof(SystemGroup.Presentation.Render.DrawPrev))]
+//    public partial class DrawBufferManagementSystem : ISystem
 //    {
-        
 
-//        protected override void OnCreate()
+
+//        public void OnCreate(ref SystemState state)
 //        {
-//            base.OnCreate();
-
-//            this.Enabled = false;
+//            state.Enabled = false;
 //        }
 
 
 
-//        protected override void OnUpdate()
+//        public void OnUpdate(ref SystemState state)
 //        { }
 
 
 
-//        protected override void OnDestroy()
+//        public void OnDestroy(ref SystemState state)
 //        {
-//            if( !this.HasSingleton<DrawSystem.ComputeTransformBufferData>() ) return;
+
+
+
+
+
+//            //if (!this.HasSingleton<DrawSystem.GraphicTransformBufferData>()) return;
 
 //            disposeTransformComputeBuffer_();
 //            disposeComputeArgumentsBuffersAllModels_();
 
 //            disposeTransformNativeBuffer_();
 
-//            base.OnDestroy();
 //            return;
 
 
 //            void disposeTransformComputeBuffer_()
 //            {
-//                var cb = this.GetSingleton<DrawSystem.ComputeTransformBufferData>();
-//                cb.Transforms?.Dispose();
+//                //var cb = this.GetSingleton<DrawSystem.GraphicTransformBufferData>();
+//                //cb.Transforms?.Dispose();
+//                foreach (var buf in SystemAPI.Query<DrawSystem.GraphicTransformBufferData>())
+//                {
+//                    buf.Transforms?.Dispose();
+//                }
 //            }
 
 //            void disposeComputeArgumentsBuffersAllModels_()
 //            {
-//                var eq = this.EntityManager.CreateEntityQuery( typeof( DrawModel.ComputeArgumentsBufferData ) );
-//                using( eq )
+//                var eq = this.EntityManager.CreateEntityQuery(typeof(DrawModel.ComputeArgumentsBufferData));
+//                using (eq)
 //                {
 //                    var args = eq.ToComponentDataArray<DrawModel.ComputeArgumentsBufferData>();
-//                    foreach( var arg in args )
+//                    foreach (var arg in args)
 //                    {
 //                        arg.InstancingArgumentsBuffer?.Dispose();
 //                    }

@@ -19,19 +19,46 @@ namespace DotsLite.Draw
 {
 
     using DotsLite.Geometry;
+    using DotsLite.Memory;
+
     //using DotsLite.Misc;
 
+    //// インターフェースでは列挙できない
+    ////public interface IPract : IComponentData
+    ////{ }
+    ////public struct PractData1
+    ////{ }
+    ////public struct PractData2
+    ////{ }
+    ////public partial struct PractSystem : ISystem
+    ////{
+    ////    public void OnStartRunning(ref SystemState state)
+    ////    {
+    ////        foreach(var c in SystemAPI.Query<IPract>())
+    ////        {
+    ////            Debug.Log(c);
+    ////        }
+    ////    }
 
+    ////    public void OnUpdate(ref SystemState state)
+    ////    {
+    ////    }
+
+    ////    public void OnDestroy(ref SystemState state)
+    ////    {
+    ////    }
+    ////}
 
     // シングルトン -----------------------
 
     static public partial class DrawSystem
     {
-        public class ComputeTransformBufferData : IComponentData
+        public class GraphicTransformBufferData : IComponentData
         {
             public ComputeBuffer Transforms;
         }
 
+        [ChunkSerializable]
         public struct NativeTransformBufferData : IComponentData
         {
             public UnsafeList<float4> Transforms;
@@ -48,6 +75,7 @@ namespace DotsLite.Draw
         { }
 
 
+        [ChunkSerializable]
         public struct SortingNativeTransformBufferData : IComponentData
         {
             public UnsafeList<float4> Transforms;
