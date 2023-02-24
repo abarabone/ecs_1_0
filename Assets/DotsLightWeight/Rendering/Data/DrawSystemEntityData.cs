@@ -23,6 +23,7 @@ namespace DotsLite.Draw
 
     //using DotsLite.Misc;
 
+    //// インターフェースでは列挙できない
     ////public interface IPract : IComponentData
     ////{ }
     ////public struct PractData1
