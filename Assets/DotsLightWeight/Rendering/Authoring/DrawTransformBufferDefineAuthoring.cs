@@ -46,11 +46,15 @@ namespace DotsLite.Draw.Authoring
                 {
                     typeof(DrawSystem.GraphicTransformBufferData),
                     typeof(DrawSystem.NativeTransformBufferData),
-                    typeof(DrawSystem.TransformBufferInfoData)// temp buffer では現状不要（毎フレームで使用分しか確保しないため）
                 };
-                if (useTempBuffer) types.Add(typeof(DrawSystem.TransformBufferUseTempJobTag));
-                //if (!useTempBuffer) types.Add(typeof(DrawSystem.TransformBufferInfoData));
-                if (useSort) types.Add(typeof(DrawSystem.SortingNativeTransformBufferData));
+
+                if (useTempBuffer)
+                    types.Add(typeof(DrawSystem.TransformBufferUseTempJobTag));
+                if (!useTempBuffer)
+                    types.Add(typeof(DrawSystem.TransformInfoData));
+                
+                if (useSort)
+                    types.Add(typeof(DrawSystem.SortingNativeTransformBufferData));
 
                 baker.AddComponent(new ComponentTypeSet(types));
             }

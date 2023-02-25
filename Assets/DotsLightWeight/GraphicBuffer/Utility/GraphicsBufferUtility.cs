@@ -22,9 +22,8 @@ namespace DotsLite.Draw
     using DotsLite.Memory;
 
 
-    public static partial class GrapichsBufferUtility
+    public static partial class GraphicsBufferUtility
     {
-
 
 
     }

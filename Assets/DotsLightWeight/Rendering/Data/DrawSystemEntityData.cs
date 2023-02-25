@@ -55,7 +55,7 @@ namespace DotsLite.Draw
     {
         public class GraphicTransformBufferData : IComponentData
         {
-            public ComputeBuffer Transforms;
+            public GraphicsBuffer Transforms;
         }
 
         [ChunkSerializable]
@@ -65,7 +65,11 @@ namespace DotsLite.Draw
             //public SimpleNativeBuffer<float4> Transforms;
         }
 
-        public struct TransformBufferInfoData : IComponentData
+        public struct BufferInfoData : IComponentData
+        {
+            public int VectorLength;
+        }
+        public struct TransformInfoData : IComponentData
         {
             public int CurrentVectorLength;
         }

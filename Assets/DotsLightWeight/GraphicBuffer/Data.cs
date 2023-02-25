@@ -20,7 +20,7 @@ namespace DotsLite.Draw
         public class ConversionSrcData : IComponentData
         {
             public NativeArray<byte> SrcData;
-            public int 
+            public int Stride;
             public int NameId;
         }
 
