@@ -58,15 +58,15 @@ namespace DotsLite.Draw
                     NativeArrayOptions.UninitializedMemory);
             }
 
-            foreach (var (buf, info) in SystemAPI.Query<
-                RefRW<DrawSystem.SortingNativeTransformBufferData>,
-                DrawSystem.BufferInfoData>())
-            {
-                buf.ValueRW.Transforms = new UnsafeList<float4>(
-                    info.VectorLength,
-                    Allocator.Persistent,
-                    NativeArrayOptions.UninitializedMemory);
-            }
+            //foreach (var (buf, info) in SystemAPI.Query<
+            //    RefRW<DrawSystem.SortingNativeTransformBufferData>,
+            //    DrawSystem.BufferInfoData>())
+            //{
+            //    buf.ValueRW.Transforms = new UnsafeList<float4>(
+            //        info.VectorLength,
+            //        Allocator.Persistent,
+            //        NativeArrayOptions.UninitializedMemory);
+            //}
         }
 
 
@@ -78,39 +78,61 @@ namespace DotsLite.Draw
 
         public void OnDestroy(ref SystemState state)
         {
-            disposeTransformComputeBuffer_(ref state);
-            disposeTransformNativeBuffer_();
-            disposeSortNativeBuffer_();
-            return;
-
-            [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            static void disposeTransformComputeBuffer_(ref SystemState state)
+            foreach (var buf in
+                SystemAPI.Query<DrawSystem.GraphicTransformBufferData>())
             {
-                foreach (var buf in
-                    SystemAPI.Query<DrawSystem.GraphicTransformBufferData>())
-                {
-                    buf.Transforms?.Dispose();
-                }
+                buf.Transforms?.Dispose();
             }
 
-            void disposeTransformNativeBuffer_()
+            foreach (var buf in
+                SystemAPI.Query<
+                    RefRW<DrawSystem.NativeTransformBufferData>>()
+                    .WithNone<DrawSystem.TransformBufferUseTempJobTag>())
             {
-                //foreach (var buf in
-                //    SystemAPI.Query<RefRW<DrawSystem.NativeTransformBufferData>>())
-                //{
-                //    buf.ValueRW.Transforms.Dispose();
-                //}
+                buf.ValueRW.Transforms.Dispose();
             }
 
-            void disposeSortNativeBuffer_()
-            {
-                //foreach (var buf in
-                //    SystemAPI.Query<RefRW<DrawSystem.SortingNativeTransformBufferData>>())
-                //{
-                //    buf.ValueRW.Transforms.Dispose();
-                //}
-            }
+            //foreach (var buf in
+            //    SystemAPI.Query<RefRW<DrawSystem.SortingNativeTransformBufferData>>())
+            //{
+            //    buf.ValueRW.Transforms.Dispose();
+            //}
         }
+        //public void OnDestroy(ref SystemState state)
+        //{
+        //    disposeTransformComputeBuffer_(ref state);
+        //    disposeTransformNativeBuffer_();
+        //    disposeSortNativeBuffer_();
+        //    return;
+
+        //    [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        //    static void disposeTransformComputeBuffer_(ref SystemState state)
+        //    {
+        //        foreach (var buf in
+        //            SystemAPI.Query<DrawSystem.GraphicTransformBufferData>())
+        //        {
+        //            buf.Transforms?.Dispose();
+        //        }
+        //    }
+
+        //    void disposeTransformNativeBuffer_()
+        //    {
+        //        foreach (var buf in
+        //            SystemAPI.Query<RefRW<DrawSystem.NativeTransformBufferData>>())
+        //        {
+        //            buf.ValueRW.Transforms.Dispose();
+        //        }
+        //    }
+
+        //    void disposeSortNativeBuffer_()
+        //    {
+        //        foreach (var buf in
+        //            SystemAPI.Query<RefRW<DrawSystem.SortingNativeTransformBufferData>>())
+        //        {
+        //            buf.ValueRW.Transforms.Dispose();
+        //        }
+        //    }
+        //}
 
 
     }

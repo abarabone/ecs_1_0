@@ -75,7 +75,7 @@ namespace DotsLite.Draw
 
         public class ComputeArgumentsBufferData : IComponentData
         {
-            public ComputeBuffer InstancingArgumentsBuffer;
+            public GraphicsBuffer InstancingArgumentsBuffer;
         }
 
         public class GeometryData : IComponentData
