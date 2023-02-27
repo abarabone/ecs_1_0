@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df1c2411a85ab2645aba982f8ad4909c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TransformBufferMaxVectorLength: 0
+  TransformBufferMaxVectorLength: 10000
   UseTempJobNativeBuffer: 0
   UseDrawInstanceSort: 0
 --- !u!4 &2066747057
