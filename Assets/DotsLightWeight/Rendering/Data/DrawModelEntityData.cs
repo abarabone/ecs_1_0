@@ -39,6 +39,7 @@ namespace DotsLite.Draw
             public int BoneLength;
         }
 
+        // 単一のジョブでカウントしたほうがよかったりするかも？
         public struct InstanceCounterData : IComponentData
         {
             //public UnsafeList<> InstanceCounter;
