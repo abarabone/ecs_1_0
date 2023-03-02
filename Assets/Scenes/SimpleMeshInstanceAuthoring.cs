@@ -3,14 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using Unity.Entities;
 
-public class SimpleMeshModelAuthoring : MonoBehaviour
+public class SimpleMeshInstanceAuthoring : MonoBehaviour
 {
 
+    public SimpleMeshModelAuthoring Model;
 
 
-    public class Baker : Baker<SimpleMeshModelAuthoring>
+
+    public class Baker : Baker<SimpleMeshInstanceAuthoring>
     {
-        public override void Bake(SimpleMeshModelAuthoring authoring)
+        public override void Bake(SimpleMeshInstanceAuthoring authoring)
         {
 
 
